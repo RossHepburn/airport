@@ -12,17 +12,18 @@ class Airport
 		planes.count
 	end	
 
-	def land(plane)
-		raise "Unable to land due to bad weather....Good luck!" if weather_stormy?
+	def accept(plane,weather)
+		raise "Unable to land due to bad weather....Good luck!" if !sunny?
 		raise "Find another airport, we are full" if full?
+		plane.land	
 		@planes << plane
-		plane.land
 	end
 	
-	def take_off(plane)
+	def release(plane,weather)
 		raise "This plane has already taken off" if !@planes.include?(plane)
-		@planes.delete(plane)
 		plane.take_off
+		@planes.delete(plane)
+
 	end
 
 	def full?

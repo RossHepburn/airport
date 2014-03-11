@@ -1,6 +1,5 @@
-module Weather
-
-	def weather_stormy?
-		rand < 0.15
+class Weather
+	def sunny?
+		rand() > 0.2
 	end
 end
